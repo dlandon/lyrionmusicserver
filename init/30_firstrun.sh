@@ -9,9 +9,11 @@ if [ ! -d /config/prefs ]; then
 	mkdir /config/prefs/plugin
 fi
 
-# Create logs directory if it doesn't exist
+# Create logs directory if it doesn't exist and log files
 if [ ! -d /config/logs ]; then
 	mkdir /config/logs
+	touch /config/logs/perfmon.log
+	touch /config/logs/server.log
 fi
 
 # Create cache directory if it doesn't exist
