@@ -23,7 +23,7 @@ RUN	apt-get update && \
 	apt-get install -y lame faad flac sox perl wget tzdata pv && \
 	apt-get install -y libio-socket-ssl-perl libcrypt-ssleay-perl && \
 	apt-get install -y openssl libcrypt-openssl-bignum-perl libcrypt-openssl-random-perl libcrypt-openssl-rsa-perl && \
-	apt-get install -y ffmpeg icedax && \
+	apt-get install -y libssl-dev ffmpeg icedax && \
 	apt-get -y upgrade -o Dpkg::Options::="--force-confold"
 
 RUN	url="https://downloads.lms-community.org/LyrionMusicServer_v${LMS_VERSION}/lyrionmusicserver_${LMS_VERSION}_amd64.deb" && \

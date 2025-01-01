@@ -1,5 +1,8 @@
 ## Change Log
 
+###2025-01-01
+- Add libssl-dev
+
 ### 2024-12-08
 - Fix some log file permissions
 
