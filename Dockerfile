@@ -12,7 +12,7 @@ ENV	DEBCONF_NONINTERACTIVE_SEEN="true" \
 	TZ="Etc/UTC" \
 	TERM="xterm" \
 	SLIMUSER="nobody" \
-	LMS_VERSION="9.0.0"
+	LMS_VERSION="9.0.1"
 
 COPY init /etc/my_init.d/
 COPY run /etc/service/lyrionmusicserver/
