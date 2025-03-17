@@ -1,5 +1,8 @@
 ## Change Log
 
+###2025-03-17
+- Update to Lyrion Music Server 9.0.2
+
 ###2025-01-16
 - Update to Lyrion Music Server 9.0.1
 
