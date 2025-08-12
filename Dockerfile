@@ -19,7 +19,7 @@ COPY run /etc/service/lyrionmusicserver/
 
 RUN rm -rf /etc/service/cron
 
-RUN	apt-get update && \
+RUN	apt-get update --allow-releaseinfo-change && \
 	apt-get install -y lame faad flac sox perl wget tzdata pv && \
 	apt-get install -y libio-socket-ssl-perl libcrypt-ssleay-perl && \
 	apt-get install -y openssl libcrypt-openssl-bignum-perl libcrypt-openssl-random-perl libcrypt-openssl-rsa-perl && \
