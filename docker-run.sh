@@ -8,6 +8,7 @@ docker run -d --name="LyrionMusicServer" \
 -p 9090:9090/tcp \
 -e PUID="99" \
 -e PGID="100" \
+-e LMS_PROTECT_SETTINGS="0" \
 -e TZ="America/Chicago" \
 -v "/mnt/user/appdata/LyrionMusicServer":"/config":rw \
 -v "/mnt/user/Music":"/music":rw \

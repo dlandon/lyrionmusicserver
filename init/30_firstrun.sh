@@ -3,30 +3,41 @@
 # 30_firstrun.sh
 #
 
+#
 # Create prefs directory if it doesn't exist
+#
 if [ ! -d /config/prefs ]; then
 	mkdir /config/prefs
 	mkdir /config/prefs/plugin
 fi
 
+
+#
 # Create logs directory if it doesn't exist and log files
+#
 if [ ! -d /config/logs ]; then
 	mkdir /config/logs
 	touch /config/logs/perfmon.log
 	touch /config/logs/server.log
 fi
 
+#
 # Create cache directory if it doesn't exist
+#
 if [ ! -d /config/cache ]; then
 	mkdir /config/cache
 fi
 
+#
 # Create playlists directory if it doesn't exist
+#
 if [ ! -d /config/playlists ]; then
 	mkdir /config/playlists
 fi
 
+#
 # Configure user nobody to match Unraid's settings
+#
 PUID=${PUID:-99}
 PGID=${PGID:-100}
 usermod -u $PUID nobody
@@ -34,3 +45,32 @@ usermod -g $PGID nobody
 usermod -d /config nobody
 chown -R nobody:users /config
 chmod -R go+rw /config
+
+#
+# Configure LMS settings protection
+#
+LMS_PROTECT_SETTINGS=${LMS_PROTECT_SETTINGS:-1}
+PREF_FILE="/config/prefs/server.prefs"
+
+#
+# Ensure prefs file exists
+#
+if [ ! -f "$PREF_FILE" ]; then
+	touch "$PREF_FILE"
+fi
+
+#
+# Normalize value (only 0 or 1)
+#
+if [ "$LMS_PROTECT_SETTINGS" != "0" ]; then
+	LMS_PROTECT_SETTINGS="1"
+fi
+
+#
+# Update or append protectSettings
+#
+if grep -q '^protectSettings:' "$PREF_FILE"; then
+	sed -i "s/^protectSettings:.*/protectSettings: $LMS_PROTECT_SETTINGS/" "$PREF_FILE"
+else
+	echo "protectSettings: $LMS_PROTECT_SETTINGS" >> "$PREF_FILE"
+fi

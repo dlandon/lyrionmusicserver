@@ -1,5 +1,11 @@
 ## Change Log
 
+### 2026-01-26
+- Add env to control the 'protectSettings' value that controls the settings page error when using a VPN, Proxy, or Tailscale.
+
+### 2025-10-03
+- Update to Lyrion Music Server 9.0.3
+
 ### 2025-09-03
 - Docker container build cleanup.
 
