@@ -1,5 +1,8 @@
 ## Change Log
 
+### 2026-02-22
+- Update to Lyrion Music Server 9.1.0
+
 ### 2026-01-26
 - Add env to control the 'protectSettings' value that controls the settings page error when using a VPN, Proxy, or Tailscale.
 
