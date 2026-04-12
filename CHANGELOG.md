@@ -1,5 +1,8 @@
 ## Change Log
 
+### 2026-04-12
+- Refresh docker container.
+
 ### 2026-02-22
 - Update to Lyrion Music Server 9.1.0
 
@@ -13,10 +16,10 @@
 - Docker container build cleanup.
 
 ### 2025-08-08
-- Refresh docker.
+- Refresh docker container.
 
 ### 2025-04-26
-- Refresh docker.
+- Refresh docker container.
 
 ### 2025-03-17
 - Update to Lyrion Music Server 9.0.2
