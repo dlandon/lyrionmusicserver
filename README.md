@@ -16,4 +16,4 @@ docker run -d --name="LyrionMusicServer" \
 -e TZ="America/Chicago" \
 -v "/mnt/user/appdata/LyrionMusicServer":"/config":rw \
 -v "/mnt/user/Music":"/music":rw \
-dlandom/lyrionmusicserver
+dlandon/lyrionmusicserver
