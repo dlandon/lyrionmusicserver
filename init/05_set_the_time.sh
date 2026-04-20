@@ -10,7 +10,9 @@ if [[ $(cat /etc/timezone) != "$TZ" ]]; then
 	dpkg-reconfigure -f noninteractive tzdata
 	echo "Date: $(date)"
 
+	#
 	# Detect installed PHP versions and update their ini files
+	#
 	for phpver in $(ls -1 /etc/php/ 2>/dev/null); do
 		for ini_path in "/etc/php/$phpver/cli/php.ini" "/etc/php/$phpver/fpm/php.ini" "/etc/php/$phpver/apache2/php.ini"; do
 			if [[ -f "$ini_path" ]]; then
