@@ -1,5 +1,11 @@
 ## Change Log
 
+### 2026-04-19
+- Update to noble 1.0.2 image (Ubuntu 24.04).
+- Adjust some /config folder ownership and permissions setting.
+- Minor Dockerfile changes.
+- Added libwww-perl liblinux-inotify2-perl packages.
+
 ### 2026-04-12
 - Refresh docker container.
 
@@ -28,7 +34,7 @@
 - Update to Lyrion Music Server 9.0.1
 
 ### 2025-01-01
-- Add libssl-dev
+- Add libssl-dev package
 
 ### 2024-12-08
 - Fix some log file permissions
