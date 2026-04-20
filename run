@@ -1,11 +1,7 @@
 #!/bin/bash
 #
-# run
-#
-
-#
 # Start squeezeboxserver
 #
-echo "Start Lyrion Music Server..."
+echo "Starting Lyrion Music Server..."
 sleep 5
-squeezeboxserver --u $SLIMUSER --prefsdir /config/prefs --logdir /config/logs --cachedir /config/cache
+squeezeboxserver --u "$SLIMUSER" --prefsdir /config/prefs --logdir /config/logs --cachedir /config/cache --httpport 9000
