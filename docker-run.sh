@@ -10,6 +10,7 @@ docker run -d --name="LyrionMusicServer" \
 -e PGID="100" \
 -e LMS_PROTECT_SETTINGS="0" \
 -e TZ="America/Chicago" \
+-e AUTO_OS_UPDATES="1" \
 -v "/mnt/user/appdata/LyrionMusicServer":"/config":rw \
 -v "/mnt/user/Music":"/music":rw \
 dlandon/lyrionmusicserver

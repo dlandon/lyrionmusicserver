@@ -1,5 +1,10 @@
 ## Change Log
 
+### 2026-04-25
+- Refresh docker container.
+- Add AUTO_OS_UPDATES environment variable to enable/disable OS and package updates.
+- Add to dockerfile to build the stable and dev versions.
+
 ### 2026-04-19
 - Update to noble 1.0.2 image (Ubuntu 24.04).
 - Adjust some /config folder ownership and permissions setting.

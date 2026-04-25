@@ -4,25 +4,31 @@
 #
 
 #
-# Update repositories
+# Check update setting
 #
-echo "Performing updates..."
-apt-get update --allow-releaseinfo-change 2>&1 | tee /tmp/test_update
-
-#
-# Verify that the updates will work.
-#
-if ! grep -q 'Failed' /tmp/test_update; then
+AUTO_OS_UPDATES=${AUTO_OS_UPDATES:-1}
+if [ "$AUTO_OS_UPDATES" = "1" ]; then
 	#
-	# Perform Upgrade
+	# Update repositories
 	#
-	apt-get -y upgrade -o Dpkg::Options::="--force-confold"
+	echo "Performing OS and package updates..."
+	apt-get update --allow-releaseinfo-change 2>&1 | tee /tmp/test_update
 
 	#
-	# Clean + purge old/obsoleted packages
+	# Verify that the updates will work.
 	#
-	apt-get -y autoremove
-	apt-get clean -y
-else
-	echo "Warning: Unable to update!  Check Internet connection."
+	if ! grep -q 'Failed' /tmp/test_update; then
+		#
+		# Perform Upgrade
+		#
+		apt-get -y upgrade -o Dpkg::Options::="--force-confold"
+
+		#
+		# Clean + purge old/obsoleted packages
+		#
+		apt-get -y autoremove
+		apt-get clean -y
+	else
+		echo "Warning: Unable to update!  Check Internet connection."
+	fi
 fi
