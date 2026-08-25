@@ -1,5 +1,10 @@
 ## Change Log
 
+### 2026-08-25
+- Refresh Lyrion Music Server latest
+- Refresh Lyrion Music Server stable
+- Refresh Lyrion Music Server dev
+
 ### 2026-06-21
 - Update to Lyrion Music Server latest to 9.1.1
 
