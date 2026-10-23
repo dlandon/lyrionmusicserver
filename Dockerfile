@@ -43,9 +43,19 @@ RUN	chmod -R +x /etc/service/lyrionmusicserver /etc/my_init.d/ && \
 	groupmod -g 19 cdrom && \
 	adduser nobody cdrom
 
-RUN	apt-get -y upgrade -o Dpkg::Options::="--force-confold" && \
-	apt-get -y autoremove && \
-	apt-get -y clean && \
+RUN set -e; \
+	apt-get update --allow-releaseinfo-change; \
+	apt-get -y upgrade -o Dpkg::Options::="--force-confold"; \
+	upgrade_plan="$(apt-get -s dist-upgrade)"; \
+	pending_updates="$(printf '%s\n' "$upgrade_plan" | awk '$1 == "Inst" || $1 == "Remv"')"; \
+	if [ -n "$pending_updates" ]; then \
+		echo "ERROR: Package updates remain after the image upgrade:" >&2; \
+		printf '%s\n' "$pending_updates" >&2; \
+		exit 1; \
+	fi; \
+	echo "Verified: no package updates remain."; \
+	apt-get -y autoremove; \
+	apt-get -y clean; \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME ["/config", "/music"]

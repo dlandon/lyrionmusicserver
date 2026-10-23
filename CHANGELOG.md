@@ -1,5 +1,10 @@
 ## Change Log
 
+### 2026-10-13
+- Rebuilt the LMS image on the Ubuntu 24.04 Noble base with current package updates.
+- Added a build-time check that fails if APT reports pending package changes after the upgrade.
+- Apply the update and verification to the `latest`, `stable`, and `dev` variants.
+
 ### 2026-08-25
 - Refresh Lyrion Music Server latest
 - Refresh Lyrion Music Server stable
